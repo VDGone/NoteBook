@@ -1,0 +1,39 @@
+doctype
+html
+    head
+        title NoteBook
+    body
+        .container
+            #header
+                .nav
+                    h1|NoteBook
+                    ul.nav.navbar-nav
+                        li
+                            a(href="/") Home
+                        li
+                        
+                        if (currentUser)
+                            li
+                                a(href="/profile") #{currentUser.username}
+                            li
+                                a(href="/logout") Logout
+                        if (!currentUser)
+                            li
+                                a(href="/login") Login
+                            li
+                                a(href="/register") Register
+            .container
+                if (errorMessage)
+                    .alert.alert-danger #{errorMessage}
+        block main-content
+        .footer
+                ul.my-nav
+                    li
+                        a(href="/") Home
+                    li
+                        a(href="/about") About
+                    li
+                        a(href="/support") Support
+                    .rights
+                        | &copy; Undefined
+        include scripts

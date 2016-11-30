@@ -1,0 +1,28 @@
+extends ../shared/layout
+block main-content
+    .main-content
+        .main-content-form
+            .login-register-content
+                .register-form
+                    form(method="post")
+                        p
+                             input(id="email" class="form-control" type="email" name="email" placeholder="E-mail")
+                        p
+                            label(for="username")
+                            input(id="username" class="form-control" type="text" name="username" placeholder="Username")
+                        p
+                            label(for="password")
+                            input(id="password" class="form-control" type="password" name="password" placeholder="Password")
+                        p
+                            label(for="confirm-password")
+                            input(id="confirm-password" class="form-control" type="password" name="confirmPassword" placeholder="Confirm password")
+                        p
+                            label(for="first-name")
+                            input(id="first-name" class="form-control" type="text" name="firstName" placeholder="First Name")
+                        p
+                            label(for="last-name")
+                            input(id="last-name" class="form-control" type="text" name="lastName" placeholder="Last Name")
+                        p
+                            label(for="profile-picture")
+                            input(id="profile-picture" class="form-control" type="text" name="profile-picture" placeholder="Profile Picture")
+                        input(type="submit" class="btn btn-lg" value="Register")        

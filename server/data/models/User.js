@@ -1,18 +1,22 @@
-var mongoose = require('mongoose'),
-    encryption = require('../../utilities/encryption');
+const mongoose = require('mongoose');
+const encryption = require('../../utilities/encryption');
 
-var requiredMessage = '{PATH} is required';
-var defaultPicture = 'http://www.freelanceme.net/Images/default%20profile%20picture.png';
+const requiredMessage = '{PATH} is required';
+const defaultPicture = 'http://www.freelanceme.net/Images/default%20profile%20picture.png';
 
 module.exports.init = function() {
-    var userSchema = mongoose.Schema({
+    let userSchema = mongoose.Schema({
         username: { type: String, required: requiredMessage, unique: true },
         salt: String,
         hashPass: String,
         firstName: { type: String, required: requiredMessage},
         lastName: { type: String, required: requiredMessage},
         email: { type: String, required: requiredMessage },
-        profilePicture: { type: String, default: defaultPicture }
+        profilePicture: { type: String, default: defaultPicture },
+        city: {type: String},
+        friends: [{}],
+        performOn: [{}],
+        isLocked: {type: Boolean}
     });
 
     userSchema.method({
@@ -26,5 +30,5 @@ module.exports.init = function() {
         }
     });
 
-    var User = mongoose.model('User', userSchema);
+    let User = mongoose.model('User', userSchema);
 };

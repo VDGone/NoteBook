@@ -1,8 +1,8 @@
-var express = require("express"),
-    session = require('express-session'),
-    bodyParser = require("body-parser"),
-    cookieParser = require("cookie-parser"),
-    passport = require("passport");
+const express = require("express");
+const session = require('express-session');
+const bodyParser = require("body-parser");
+const cookieParser = require("cookie-parser");
+const passport = require("passport");
 
 module.exports = function (app, config) {
     app.set("view engine", "pug");

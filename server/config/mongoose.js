@@ -1,13 +1,13 @@
 "use strict";
 
-var mongoose = require('mongoose'),
+const mongoose = require('mongoose');
 //add models
-    UserModel = require('../data/models/User');
+const UserModel = require('../data/models/User');
 
 
 module.exports = function(config) {
     mongoose.connect(config.db);
-    var db = mongoose.connection;
+    let db = mongoose.connection;
 
     db.once('open', function(err) {
         if (err) {

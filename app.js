@@ -2,12 +2,12 @@
 
 "use strict";
 
-var express = require("express");
+const express = require("express");
 
-var env = process.env.NODE_ENV || "development";
+const env = process.env.NODE_ENV || "development";
 
-var app = express();
-var config = require("./server/config/config")[env];
+const app = express();
+const config = require("./server/config/config")[env];
 
 require("./server/config/express")(app, config);
 require("./server/config/mongoose")(config);

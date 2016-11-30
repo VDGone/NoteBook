@@ -1,4 +1,4 @@
-var User = require('mongoose').model('User');
+const User = require('mongoose').model('User');
 
 module.exports = {
     create: function(user, callback) {

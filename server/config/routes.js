@@ -2,14 +2,14 @@
 
 "use strict";
 
-var auth = require("./auth");
-    //controllers = require("../controllers");
+const auth = require("./auth");
+const controllers = require("../controllers");
 
 module.exports = function(app) {
-    //app.get("/register", controllers.users.getRegister);
-    //app.post("/register", controllers.users.postRegister);
+    app.get("/register", controllers.users.getRegister);
+    app.post("/register", controllers.users.postRegister);
 
-    //app.get("/login", controllers.users.getLogin);
+    app.get("/login", controllers.users.getLogin);
     app.post("/login", auth.login);
     app.get("/logout", auth.logout);
 
