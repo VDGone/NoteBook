@@ -1,0 +1,30 @@
+{
+  "name": "notebook",
+  "version": "1.0.0",
+  "description": "Social network for musicians",
+  "main": "app.js",
+  "scripts": {
+    "test": "run"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/VDGone/NoteBook.git"
+  },
+  "keywords": [
+    "node.js",
+    "javascript",
+    "pug"
+  ],
+  "author": "undefined",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/VDGone/NoteBook/issues"
+  },
+  "homepage": "https://github.com/VDGone/NoteBook#readme",
+  "dependencies": {
+    "body-parser": "^1.15.2",
+    "express": "^4.14.0",
+    "mongoose": "^4.7.0",
+    "pug": "^2.0.0-beta6"
+  }
+}
