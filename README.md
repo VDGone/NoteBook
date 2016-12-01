@@ -1,4 +1,4 @@
-# NoteBook
+# NoteIHit
 Social network for musicians 
 
 # Course Project
