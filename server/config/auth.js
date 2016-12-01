@@ -1,10 +1,10 @@
 "use strict";
 
-var passport = require('passport');
+var passport = require("passport");
 
 module.exports = {
     login: function(req, res, next) {
-        let auth = passport.authenticate('local', function(err, user) {
+        let auth = passport.authenticate("local", function(err, user) {
             if (err) {
                 return next(err);
             }
@@ -16,7 +16,7 @@ module.exports = {
                 if (err) {
                     return next(err);
                 }
-                res.redirect('/');
+                res.redirect("/");
             })
         });
 
@@ -24,11 +24,11 @@ module.exports = {
     },
     logout: function(req, res, next) {
         req.logout();
-        res.redirect('/');
+        res.redirect("/");
     },
     isAuthenticated: function(req, res, next) {
         if (!req.isAuthenticated()) {
-            res.redirect('/login');
+            res.redirect("/login");
         }
         else {
             next();

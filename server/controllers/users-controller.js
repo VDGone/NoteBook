@@ -1,26 +1,26 @@
 "use strict";
 
-const encryption = require('../utilities/encryption');
-const users = require('../data/users');
+const encryption = require("../utilities/encryption");
+const users = require("../data/users");
 
-const CONTROLLER_NAME = 'users';
+const CONTROLLER_NAME = "users";
 
 module.exports = {
     getRegister: function (req, res, next) {
-        res.render(CONTROLLER_NAME + '/register')
+        res.render(CONTROLLER_NAME + "/register")
     },
     postRegister: function (req, res, next) {
         let newUserData = req.body;
         if (newUserData.password != newUserData.confirmPassword) {
-            req.session.error = 'Passwords do not match!';
-            res.redirect('/register');
+            req.session.error = "Passwords do not match!";
+            res.redirect("/register");
         }
         else {
             newUserData.salt = encryption.generateSalt();
             newUserData.hashPass = encryption.generateHashedPassword(newUserData.salt, newUserData.password);
             users.create(newUserData, function (err, user) {
                 if (err) {
-                    console.log('Failed to register new user: ' + err);
+                    console.log("Failed to register new user: " + err);
                     return;
                 }
 
@@ -30,23 +30,23 @@ module.exports = {
                         return res.send({ reason: err.toString() });
                     }
                     else {
-                        res.redirect('/');
+                        res.redirect("/");
                     }
                 })
             });
         }
     },
     getLogin: function (req, res, next) {
-        res.render(CONTROLLER_NAME + '/login');
+        res.render(CONTROLLER_NAME + "/login");
     },
     getProfile: function (req, res, next) {
-        res.render(CONTROLLER_NAME + '/profile');
+        res.render(CONTROLLER_NAME + "/profile");
     },
     postProfile: function (req, res, next) {
         let newUserData = req.body;
         users.create(newUserData, function (err, user) {
             if (err) {
-                console.log('Failed to register new user: ' + err);
+                console.log("Failed to register new user: " + err);
                 return;
             }
 
@@ -56,7 +56,7 @@ module.exports = {
                     return res.send({ reason: err.toString() }); // TODO:
                 }
                 else {
-                    res.redirect('/');
+                    res.redirect("/");
                 }
             })
         });

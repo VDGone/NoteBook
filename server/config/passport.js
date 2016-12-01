@@ -1,15 +1,15 @@
 /* globals */
 "use strict";
 
-const passport = require('passport');
-const LocalPassport = require('passport-local');
-const User = require('mongoose').model('User');
+const passport = require("passport");
+const LocalPassport = require("passport-local");
+const User = require("mongoose").model("User");
 
-module.exports = function() {
-    passport.use(new LocalPassport(function(username, password, done) {
-        User.findOne({ username: username }).exec(function(err, user) {
+module.exports = () => {
+    passport.use(new LocalPassport((username, password, done) => {
+        User.findOne({ username: username }).exec((err, user) => {
             if (err) {
-                console.log('Error loading user: ' + err);
+                console.log("Error loading user: " + err);
                 return;
             }
 
@@ -22,16 +22,16 @@ module.exports = function() {
         })
     }));
 
-    passport.serializeUser(function(user, done) {
+    passport.serializeUser((user, done) => {
         if (user) {
             return done(null, user._id);
         }
     });
 
-    passport.deserializeUser(function(id, done) {
+    passport.deserializeUser((id, done) => {
         User.findOne({_id: id}).exec(function(err, user) {
             if (err) {
-                console.log('Error loading user: ' + err);
+                console.log("Error loading user: " + err);
                 return;
             }
 

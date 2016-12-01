@@ -1,17 +1,15 @@
 doctype
 html
     head
-        title NoteBook
+        title NoteIBook
     body
         .container
             #header
                 .nav
-                    h1|NoteBook
+                    h1|NoteIBook
                     ul.nav.navbar-nav
                         li
                             a(href="/") Home
-                        li
-                        
                         if (currentUser)
                             li
                                 a(href="/profile") #{currentUser.username}

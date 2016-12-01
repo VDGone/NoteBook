@@ -1,7 +1,12 @@
-const User = require('mongoose').model('User');
+"use strict";
+
+const User = require("mongoose").model("User");
 
 module.exports = {
-    create: function(user, callback) {
+    create: (user, callback) => {
         User.create(user, callback);
-    }
+    } //,
+    //update: (user, callback) => {
+    //    User.update(user, callback);
+    //}
 };
