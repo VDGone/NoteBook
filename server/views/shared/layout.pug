@@ -2,12 +2,14 @@ doctype
 html
     head
         title NoteIBook
+        link(rel="stylesheet" href="/css/main.css")
     body
         .container
             #header
                 .nav
-                    h1|NoteIBook
                     ul.nav.navbar-nav
+                        li
+                            img(src= "/img/Logo.png")
                         li
                             a(href="/") Home
                         if (currentUser)
