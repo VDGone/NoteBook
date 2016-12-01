@@ -1,0 +1,9 @@
+extends ../shared/layout
+block main-content
+    .main-content
+        h1 Welcome #{currentUser.username}
+        img(src= currentUser.profilePicture)
+        p #{currentUser.firstName} #{currentUser.lastName}
+        p #{currentUser.city}
+        p #{currentUser.email}
+        p #{currentUser.performOn}

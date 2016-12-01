@@ -13,6 +13,10 @@ module.exports = function(app) {
     app.post("/login", auth.login);
     app.get("/logout", auth.logout);
 
+    app.get("/profile", function (req, res){
+        res.render("users/profile");
+    });
+
     app.get("/", function(req, res) {
         res.render("index");
     });
