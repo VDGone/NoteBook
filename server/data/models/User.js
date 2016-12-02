@@ -2,7 +2,7 @@ const mongoose = require("mongoose");
 const encryption = require("../../utilities/encryption");
 
 const requiredMessage = "{PATH} is required";
-const defaultPicture = "http://www.freelanceme.net/Images/default%20profile%20picture.png";
+const defaultPicture = "http://trophia.com/wp-content/uploads/2014/07/default-profile.jpg";
 
 module.exports.init = () => {
     let userSchema = mongoose.Schema({
