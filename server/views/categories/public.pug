@@ -1,0 +1,20 @@
+extends ../shared/layout
+block main-content
+    .main-content
+        .shadow
+            .main-content-form
+                    each category in data.categories
+                       .category-preview-content
+                           h1
+                           - var id = category.id
+                               a(href="/categories/details/:" + id) #{category.title}
+                           .border
+                               - var url = category.picture
+                               img(src= url class="user-profile-picture")
+                           p
+                               | #{category.description}
+                    .pagination-control
+                        - for(var i = 1; i <= data.total / data.pageSize; i++)
+                        - var number = Math.round(data.total / data.pageSize)
+                            | page #{i} of #{number + 1} 
+                            a.btn.btn-lf.btn-primary(href="/categories/public?page=#{i}&pageSize=#{data.pageSize}") #{i}

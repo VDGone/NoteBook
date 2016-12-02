@@ -14,7 +14,12 @@ html
                                 img(src= "/img/Logo.png").img-responsive 
                             li.nav-item
                                 a(href="/") Home
+                            li.nav-item
+                                a(href="/categories") Categories
                         if (currentUser)
+                            ul.nav.navbar-nav
+                                li.nav-item
+                                    a(href="/categories/create") Create Category
                             ul.nav.navbar-nav.navbar-right
                                 li.nav-item
                                     a(href="/profile") #{currentUser.username}
@@ -30,7 +35,7 @@ html
                     .alert.alert-danger #{errorMessage}
         block main-content
         .footer
-                ul.my-nav
+                ul.footer-nav
                     li
                         a(href="/") Home
                     li
