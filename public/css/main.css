@@ -4,12 +4,7 @@ body,nav,header,div,ul,li{
     border: 0;
 }
 
-#container{
-    width: 100%;
-}
-
-
-header{
+#container, header, div.row{
     width: 100%;
 }
 
@@ -34,9 +29,17 @@ ul.profile{
     list-style-type: none;
 }
 
-div > #update-info{
-    display: block;
-    background-color: red;
+div.row{
+    margin: 0 auto;
+}
+
+div.btn{
+	margin-top: 2%;
+	background-color: red;
+}
+
+div.btn:hover{
+	background-color: black;
 }
 
 .container-table{
