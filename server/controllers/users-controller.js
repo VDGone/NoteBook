@@ -4,6 +4,7 @@ const encryption = require("../utilities/encryption");
 const users = require("../data/users");
 
 const CONTROLLER_NAME = "users";
+const DEFAULT_USERPICTURE = "http://www.freelanceme.net/Images/default%20profile%20picture.png";
 
 module.exports = {
     getRegister: function (req, res, next) {
@@ -11,6 +12,9 @@ module.exports = {
     },
     postRegister: function (req, res, next) {
         let newUserData = req.body;
+        if(newUserData.profilePicture == ""){
+            newUserData.profilePicture = DEFAULT_USERPICTURE;
+        }
         if (newUserData.password != newUserData.confirmPassword) {
             req.session.error = "Passwords do not match!";
             res.redirect("/register");
