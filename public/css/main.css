@@ -4,6 +4,15 @@ body,nav,header,div,ul,li{
     border: 0;
 }
 
+#container{
+    width: 100%;
+}
+
+
+header{
+    width: 100%;
+}
+
 nav li img {
     width: 70%;
     height: 70%;

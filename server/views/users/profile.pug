@@ -4,7 +4,7 @@ block main-content
         div.row.vertical-center-row
             if(currentUser.profilePicture)
             div.text-center.col-md-4.col-md-offset-4
-                img(src=currentUser.profilePicture)
+                img(src=currentUser.profilePicture).img-responsive 
             if(!currentUser.profilePicture)
             div.text-center.col-md-4.col-md-offset-4
                 img(src="http://trophia.com/wp-content/uploads/2014/07/default-profile.jpg").img-responsive      
