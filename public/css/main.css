@@ -4,6 +4,15 @@ body,nav,header,div,ul,li{
     border: 0;
 }
 
+#container{
+    width: 100%;
+}
+
+
+header{
+    width: 100%;
+}
+
 nav li img {
     width: 70%;
     height: 70%;
@@ -19,6 +28,27 @@ nav ul li:hover{
 
 .navbar-header:hover {
     background-color: inherit;
+}
+
+ul.profile{
+    list-style-type: none;
+}
+
+div > #update-info{
+    display: block;
+    background-color: red;
+}
+
+.container-table{
+    font-family: sans-serif;
+    font-weight: bold;
+}
+
+.container-table a {
+    display: inline-block;
+    height: 50%;
+    color: white;
+    text-decoration: none;
 }
 
 /*nav ul li {

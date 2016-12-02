@@ -1,9 +1,21 @@
 extends ../shared/layout
 block main-content
-    .main-content
-        h1 Welcome #{currentUser.username}
-        img(src= currentUser.profilePicture)
-        p #{currentUser.firstName} #{currentUser.lastName}
-        p #{currentUser.city}
-        p #{currentUser.email}
-        p #{currentUser.performOn}
+    div.container-table.container-fluid
+        div.row.vertical-center-row
+            if(currentUser.profilePicture)
+            div.text-center.col-md-4.col-md-offset-4
+                img(src=currentUser.profilePicture).img-responsive 
+            if(!currentUser.profilePicture)
+            div.text-center.col-md-4.col-md-offset-4
+                img(src="http://trophia.com/wp-content/uploads/2014/07/default-profile.jpg").img-responsive      
+        div.row.vertical-center-row
+            div.text-center.col-md-4.col-md-offset-4
+                a(href="/" role="button" id="update-info").btn-default Update info
+        div.row.vertical-center-row
+            div.text-center.col-md-4.col-md-offset-4 #{currentUser.firstName} #{currentUser.lastName}
+        div.row.vertical-center-row
+            div.text-center.col-md-4.col-md-offset-4 #{currentUser.city}
+        div.row.vertical-center-row
+            div.text-center.col-md-4.col-md-offset-4 #{currentUser.email}
+        div.row.vertical-center-row
+            div.text-center.col-md-4.col-md-offset-4 #{currentUser.city}
