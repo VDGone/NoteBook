@@ -50,6 +50,7 @@ module.exports = {
         var id = req.params.id;
         var category = req.body;
         categories.getById(id, category, function (err, data) {
+             console.log(data);
             res.render(CONTROLLER_NAME + '/details', {
                 data: data
             });

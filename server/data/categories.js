@@ -40,11 +40,12 @@ module.exports = {
             })
     },
     getById: function (id, category, callback) {
-        Category.findOne(id).exec((err, category) => {
+        Category.findById(id, (err, category) => {
+            console.log(category);
             if (err) {
                 callback("Not found! " + err);
             }
-            var data = {
+            let data = {
                 title: category.title,
                 items: category.items,
                 description: category.description,

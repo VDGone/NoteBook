@@ -16,6 +16,7 @@ module.exports = function(app) {
     app.get("/profile", auth.isAuthenticated, controllers.users.getProfile);
 
     app.get("/categories", controllers.categories.getPublic);
+    app.get('/categories/details/:id', controllers.categories.getCategoryById);
     app.get("/categories/create", auth.isAuthenticated, controllers.categories.getCreate);
     app.post("/categories/create", auth.isAuthenticated, controllers.categories.postCreate);
 

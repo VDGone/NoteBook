@@ -7,7 +7,7 @@ block main-content
                        .category-preview-content
                            h1
                            - var id = category.id
-                               a(href="/categories/details/:" + id) #{category.title}
+                               a(href="/categories/details/" + id) #{category.title}
                            .border
                                - var url = category.picture
                                img(src= url class="user-profile-picture")
