@@ -16,10 +16,14 @@ html
                                 a(href="/") Home
                             li.nav-item
                                 a(href="/categories") Categories
+                            li.nav-item
+                                a(href="/events") Events
                         if (currentUser)
                             ul.nav.navbar-nav
                                 li.nav-item
                                     a(href="/categories/create") Create Category
+                                li.nav-item
+                                    a(href="/events/create") Create Event
                             ul.nav.navbar-nav.navbar-right
                                 li.nav-item
                                     a(href="/profile") #{currentUser.username}

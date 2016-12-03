@@ -1,0 +1,20 @@
+extends ../shared/layout
+block main-content
+    .main-content
+        h1 EVENTS!
+        .shadow
+            .main-content-form
+                each event in data.events
+                    .event-preview-content
+                        h1
+                            - var id = event.id
+                                a(href="/events/details/" + id) #{event.title}
+                        p
+                            | #{event.place}
+                        p
+                            | #{event.description}
+                .paging-control
+                    - for(var i = 1; i <= data.total / data.pageSize; i++)
+                    - var number = Math.round(data.total / data.pageSize)
+                        | page #{i} of #{number + 1} 
+                        a.btn.btn-lf.btn-primary(href="/events/public?page=#{i}&pageSize=#{data.pageSize}") #{i}

@@ -1,0 +1,8 @@
+extends ../shared/layout
+block main-content
+    .create-event-form
+        form(method="post")
+            input(id="title" class="form-control" type="text" name="title" placeholder="Title")
+            input(id="place" class="form-control" type="text" name="place" placeholder="Place")
+            textarea(id="description" class="form-control" type="text" name="description" placeholder="Description")
+            input(type="submit" class="btn btn-lg" value="submit")

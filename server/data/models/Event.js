@@ -4,8 +4,9 @@ const mongoose = require("mongoose");
 
 module.exports.init = () => {
     let eventSchema = mongoose.Schema({
-        creator: { type: Object },
-        date: { type: Date },
+        title: {type: String},
+        creator: { type: String },
+        date: { type: Date, default: Date.now()},
         place: { type: String },
         description: { type: String }
     });
