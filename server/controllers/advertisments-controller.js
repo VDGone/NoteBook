@@ -1,5 +1,7 @@
 var advertisments = require('../data/advertisments');
 
+var Category = require("mongoose").model("Category");
+
 var CONTROLLER_NAME = 'advertisments';
 
 module.exports = {
@@ -13,32 +15,10 @@ module.exports = {
             picture: advertisment.picture
         });
     },
-    postAdd: function (req, res) {
+    create: function (req, res) {
         let advertisment = req.body;
         let user = req.user;
-        advertisments.create(
-            category,
-            {
-                username: user.username
-            },
-            function (err, category) {
-                if (err) {
-                    var data = {
-                        title: advertisment.title,
-                        description: advertisment.description,
-                        price: advertisment.price,
-                        type: advertisment.type,
-                        picture: advertisment.picture,
-                        errorMessage: err
-                    };
-                    res.render(CONTROLLER_NAME + '/add-advertisment', data);
-                }
-                else {
-                    res.redirect('/advertisments');
-                    //res.redirect('/categories/details/' + category._id);
-                    //console.log(JSON.stringify(category));
-                }
-            })
+        advertisments.create(advertisment)
     },
     getPublic: function (req, res) {
         let page = req.query.page;

@@ -39,9 +39,8 @@ module.exports = {
                 });
             })
     },
-    getById: function (id, category, callback) {
-        Category.findById(id, (err, category) => {
-            console.log(category);
+    getByTitle: function (title, category, callback) {
+        Category.findOne({title: `${title}`}, (err, category) => {
             if (err) {
                 callback("Not found! " + err);
             }
@@ -53,5 +52,8 @@ module.exports = {
             };
             callback(err, data)
         })
-    }
+    },
+    getByTitleAndUpdate: function (title,category, callback) {
+        Category.update({title: `${title}`},{$push: {items: category}}).exec();
+    } 
 };

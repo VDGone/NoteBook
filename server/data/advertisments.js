@@ -52,5 +52,20 @@ module.exports = {
             };
             callback(err, data)
         })
+    },
+    getByCategory: (id, user, callback) => {
+        User.findOne({username: `${id}`}, (err, user) => {
+            if (err) {
+                callback("Not found! " + err);
+            }
+            let data = {
+                firstName: user.firstName,
+                lastName: user.lastName,
+                city: user.city,
+                email : user.email,
+                profilePicture: user.profilePicture
+            };
+            callback(err, data)
+        })
     }
 };

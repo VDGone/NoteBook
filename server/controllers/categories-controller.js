@@ -46,14 +46,21 @@ module.exports = {
             });
         });
     },
-    getCategoryById: function (req, res) {
-        var id = req.params.id;
+    getCategoryByTitle: function (req, res) {
+        var title = req.params.title;
         var category = req.body;
-        categories.getById(id, category, function (err, data) {
-             console.log(data);
-            res.render(CONTROLLER_NAME + '/details', {
+        categories.getByTitle(title, category, function (err, data) {
+            res.render(CONTROLLER_NAME + '/category', {
                 data: data
-            });
+            },
+            console.log(data));
         });
+    },
+    postAdd: function(req,res) {
+        let title = req.params.title;
+        let  category = req.body;
+        categories.getByTitleAndUpdate(title,category,function(err,data){
+        })
+        res.redirect('/');
     }
 };
