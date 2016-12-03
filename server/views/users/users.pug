@@ -10,7 +10,7 @@ block main-content
                            h3
                                a(href="/users/" + user.username) #{user.username}
                            .border
-                               img(src=user.profilePicture class="user-profile-picture")
+                               img(src=user.profilePicture class="user-profile-picture" style="width:10%; height:150px")
                     .pagination-control
                         - for(var i = 1; i <= data.total / data.pageSize; i++)
                             - var number = Math.round(data.total / data.pageSize)

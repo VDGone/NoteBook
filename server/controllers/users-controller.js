@@ -79,8 +79,8 @@ module.exports = {
         var id = req.params.id;
         var user = req.body;
             users.getById(id, user, function (err, data) {
-            res.render(CONTROLLER_NAME + '/profile', {
-                currentUser: data
+            res.render(CONTROLLER_NAME + '/user', {
+                user: data
             });
         });
     }

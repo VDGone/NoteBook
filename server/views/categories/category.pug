@@ -6,9 +6,9 @@ block main-content
                     each item in data.items
                        .category-preview-content
                            h1
-                               a(href="/categories/" + item.title) #{item.title}
+                               a(href="/categories/" + data.title + "/" +  item.title) #{item.title}
                            .border
-                               img(src= item.picture class="user-profile-picture")
+                               img(src= item.picture class="user-profile-picture" style="width:5%; height:75px")
                            p
                                | #{item.price}
                            p
