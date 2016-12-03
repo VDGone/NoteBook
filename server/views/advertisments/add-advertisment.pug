@@ -1,0 +1,23 @@
+extends ../shared/layout
+block main-content
+    .main-content
+        h1 Add your advertisment
+        .login-register-content
+            .register-form
+                form(method="post")
+                    p
+                        label(for="title")
+                        input(id="title" class="form-control" type="text" name="title" placeholder="Title")
+                    p
+                        label(for="description")
+                        input(id="description" class="form-control" type="text" name="description" placeholder="Description")
+                    p
+                        label(for="price")
+                        input(id="price" class="form-control" type="text" name="price" placeholder="Price")
+                    p
+                        label(for="type")
+                        input(id="type" class="form-control" type="text" name="type" placeholder="Type")
+                    p
+                        label(for="picture")
+                        input(id="picture" class="form-control" type="text" name="picture" placeholder="Advertisment Picture")
+                    input(type="submit" class="btn btn-lg" value="Add Advertisment")  

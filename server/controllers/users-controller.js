@@ -12,7 +12,7 @@ module.exports = {
     },
     postRegister: function (req, res, next) {
         let newUserData = req.body;
-        if(newUserData.profilePicture == ""){
+        if (newUserData.profilePicture == "") {
             newUserData.profilePicture = DEFAULT_USERPICTURE;
         }
         if (newUserData.password != newUserData.confirmPassword) {
@@ -63,6 +63,25 @@ module.exports = {
                     res.redirect("/");
                 }
             })
+        });
+    },
+    getPublic: function (req, res) {
+        let page = req.query.page;
+        let pageSize = req.query.pageSize;
+
+        users.publicUsers(page, pageSize, users.Date, function (err, data) {
+            res.render(CONTROLLER_NAME + '/users', {
+                data: data
+            });
+        });
+    },
+    getUserById: function (req, res) {
+        var id = req.params.id;
+        var user = req.body;
+            users.getById(id, user, function (err, data) {
+            res.render(CONTROLLER_NAME + '/profile', {
+                currentUser: data
+            });
         });
     }
 };

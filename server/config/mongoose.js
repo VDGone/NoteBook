@@ -5,6 +5,7 @@ const mongoose = require("mongoose");
 //add models
 const UserModel = require("../data/models/User");
 const CategoryModel = require("../data/models/Category");
+const AdvertismentModel = require("../data/models/Advertisment");
 
 module.exports = function(config) {
     mongoose.connect(config.db);
@@ -26,4 +27,5 @@ module.exports = function(config) {
     // init models
     UserModel.init();
     CategoryModel.init();
+    AdvertismentModel.init();
 };

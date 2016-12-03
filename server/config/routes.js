@@ -15,6 +15,11 @@ module.exports = function(app) {
 
     app.get("/profile", auth.isAuthenticated, controllers.users.getProfile);
 
+    app.get("/advertisments", controllers.advertisments.getPublic);
+
+    app.get("/users", controllers.users.getPublic);
+    app.get('/users/:id', controllers.users.getUserById);
+    
     app.get("/categories", controllers.categories.getPublic);
     app.get('/categories/details/:id', controllers.categories.getCategoryById);
     app.get("/categories/create", auth.isAuthenticated, controllers.categories.getCreate);
