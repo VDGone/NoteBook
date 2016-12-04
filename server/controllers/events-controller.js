@@ -29,18 +29,16 @@ module.exports = {
             },
             (err, event) => {
                 if (err) {
-                    let data = {
+                    /*let data = {
                         id: event.id,
                         title: event.title,
                         place: event.place,
                         description: event.description,
                         errorMessage: err
-                    };
-                    console.log(data);
+                    };*/
                     res.redirect("error-page");
                 }
                 else {
-                    console.log("43 events-controller.js");
                     res.redirect(`/${CONTROLLER_NAME}/details/${event._id}`);
                 }
             });
@@ -62,11 +60,7 @@ module.exports = {
     getEventById: (req, res) => {
         let id = req.params.id;
         var event = req.body;
-        console.log(event);
-        console.log(EVENT.ObjectId);
         EVENT.getById(id, event, (err, data) => {
-            console.log(data);
-            console.log(err);
             res.render(CONTROLLER_NAME + '/details', {
                 data: data
             });
