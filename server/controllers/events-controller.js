@@ -16,14 +16,12 @@ module.exports = {
                 description: event.description
             };
 
-        // console.log(data);
         res.render(CONTROLLER_NAME + "/create", data);
     },
     postEvent: (req, res) => {
         let event = req.body;
         let user = req.user;
 
-        console.log(event);
         EVENT.postEvent(
             event,
             {
@@ -49,10 +47,8 @@ module.exports = {
     getPublic: function (req, res) {
         var page = req.query.page;
         var pageSize = req.query.pageSize;
-        console.log(EVENT.Data);
         EVENT.publicEvents(page, pageSize, EVENT.Date, (err, data) => {
             if (err) {
-                console.log(err);
                 res.sendStatus(404);
             }
 
