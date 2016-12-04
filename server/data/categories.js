@@ -41,7 +41,7 @@ module.exports = {
     },
     getById: function (id, category, callback) {
         Category.findById(id, (err, category) => {
-            console.log(category);
+            // console.log(category);
             if (err) {
                 callback("Not found! " + err);
             }

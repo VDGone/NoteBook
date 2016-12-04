@@ -5,37 +5,39 @@ html
         link(rel="stylesheet" href="/css/bootstrap.min.css")
         link(rel="stylesheet" href="/css/main.css")
     body
-        .container-fluid
-            header
-                nav.navbar.navbar-inverse
-                    div.container-fluid
+        header.container-fluid
+            nav.navbar.navbar-inverse
+                div.container-fluid
+                    ul.nav.navbar-nav
+                        li.nav-item.logo
+                            a(href="/")
+                        li.nav-item
+                            a(href="/categories") Categories
+                        li.nav-item
+                            a(href="/events") Events
+                    if (currentUser)
                         ul.nav.navbar-nav
-                            li.nav-item.navbar-header
-                                img(src= "/img/Logo.png").img-responsive 
                             li.nav-item
-                                a(href="/") Home
+                                a(href="/categories/create") Create Category
                             li.nav-item
-                                a(href="/categories") Categories
-                        if (currentUser)
-                            ul.nav.navbar-nav
-                                li.nav-item
-                                    a(href="/categories/create") Create Category
-                            ul.nav.navbar-nav.navbar-right
-                                li.nav-item
-                                    a(href="/profile") #{currentUser.username}
-                                li.nav-item
-                                    a(href="/logout") Logout
-                        if (!currentUser)
-                            ul.nav.navbar-nav.navbar-right
-                                li.nav-item
-                                    a(href="/register") Register
-                                li.nav-item
-                                    a(href="/login") Login
-                if (errorMessage)
-                    .alert.alert-danger #{errorMessage}
+                                a(href="/events/create") Create Event
+                        ul.nav.navbar-nav.navbar-right
+                            li.nav-item
+                                a(href="/profile") #{currentUser.username}
+                            li.nav-item
+                                a(href="/logout") Logout
+                    if (!currentUser)
+                        ul.nav.navbar-nav.navbar-right
+                            li.nav-item
+                                a(href="/register") Register
+                            li.nav-item
+                                a(href="/login") Login
+            if (errorMessage)
+                .alert.alert-danger #{errorMessage}
         block main-content
-        .footer
-                ul.footer-nav
+        footer.navbar.navbar-inverse.navbar-fixed-bottom
+            div.container-fluid
+                ul.bs-docs-footer-links
                     li
                         a(href="/") Home
                     li
