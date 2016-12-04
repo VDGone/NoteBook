@@ -4,6 +4,10 @@ body,nav,header,div,ul,li{
     border: 0;
 }
 
+body{
+    height: 100%;
+}
+
 div#main-content{
     width: 100%;
 }
@@ -81,6 +85,7 @@ div.btn:hover, #create-events:hover{
 }
 
 footer {
+    bottom: 0;
     margin: 1%;
     border-radius: 2%; 
     color: red;
