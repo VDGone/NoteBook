@@ -30,39 +30,43 @@ module.exports = {
             (err, event) => {
                 if (err) {
                     let data = {
+                        id: event.id,
                         title: event.title,
                         place: event.place,
                         description: event.description,
                         errorMessage: err
                     };
                     console.log(data);
-                    res.render(CONTROLLER_NAME + '/create', data);
+                    res.redirect("error-page");
                 }
                 else {
+                    console.log("43 events-controller.js");
                     res.redirect(`/${CONTROLLER_NAME}/details/${event._id}`);
                 }
             });
     },
-    getPublic: function (req, res) {
+    getPublic: function(req, res) {
         var page = req.query.page;
         var pageSize = req.query.pageSize;
         EVENT.publicEvents(page, pageSize, EVENT.Date, (err, data) => {
             if (err) {
                 res.sendStatus(404);
+                res.redirect("error-page");
+            } else {
+                res.render(CONTROLLER_NAME + '/public', {
+                    data: data
+                });
             }
-
-            res.render(CONTROLLER_NAME + '/public', {
-                data: data
-            });
         });
     },
     getEventById: (req, res) => {
         let id = req.params.id;
-        let event = req.body;
+        var event = req.body;
+        console.log(event);
+        console.log(EVENT.ObjectId);
         EVENT.getById(id, event, (err, data) => {
-            if (err) {
-                res.sendStatus(404);
-            }
+            console.log(data);
+            console.log(err);
             res.render(CONTROLLER_NAME + '/details', {
                 data: data
             });
