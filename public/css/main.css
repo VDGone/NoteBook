@@ -27,11 +27,22 @@ nav ul li a{
     color: white;
 }
 
+li.logo {
+    background: no-repeat url(../img/logo.png);
+    background-size: 100% 100%;
+
+}
+
+li.logo a{
+   min-width: 150px; 
+   min-height: 50px;
+}
+
 nav ul li:hover{
     background-color: red;
 }
 
-.navbar-header:hover {
+.logo:hover {
     background-color: inherit;
 }
 
