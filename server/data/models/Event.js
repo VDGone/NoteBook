@@ -12,5 +12,5 @@ module.exports.init = () => {
         description: { type: String }
     });
 
-    let Event = mongoose.model("Event", eventSchema);
+    mongoose.model("Event", eventSchema);
 };

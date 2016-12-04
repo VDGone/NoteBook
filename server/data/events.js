@@ -8,7 +8,6 @@ module.exports = {
             callback("Invalid event!");
             return;
         }
-        // console.log(event);
 
         EVENT.create(event, callback);
     },
@@ -24,7 +23,6 @@ module.exports = {
             .skip((page - 1) * pageSize)
             .exec((err, foundEvents) => {
                 if (err) {
-                    console.log("ERROOOOR");
                     callback(err);
                     return;
                 }
@@ -43,12 +41,11 @@ module.exports = {
     },
     getById: function (id, event, callback) {
         EVENT.findById(id.toString(), (err, event) => {
-            console.log(event);
             if (err) {
                 callback("Not found! " + err);
             }
             if (!event) {
-                console.log(err);
+                callback(err);
             } else {
                 let data = {
                     id: event.id,
