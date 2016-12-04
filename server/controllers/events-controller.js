@@ -40,7 +40,6 @@ module.exports = {
                 }
                 else {
                     res.redirect(`/${CONTROLLER_NAME}/details/${event._id}`);
-                    console.log(JSON.stringify(event));
                 }
             });
     },
@@ -60,12 +59,7 @@ module.exports = {
     getEventById: (req, res) => {
         let id = req.params.id;
         let event = req.body;
-        console.log("67 event");
-        console.log(event);
         EVENT.getById(id, event, (err, data) => {
-            console.log("68 events-controller.js");
-            console.log(data);
-            console.log(data._id);
             if (err) {
                 res.sendStatus(404);
             }
