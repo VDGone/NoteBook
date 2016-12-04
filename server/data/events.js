@@ -42,17 +42,23 @@ module.exports = {
             })
     },
     getById: function (id, event, callback) {
-        EVENT.findOne({ _id: id }, (err, event) => {
-            console.log(event + "events.js" + " 46row");
+        EVENT.findById(id.toString(), (err, event) => {
+            console.log(event);
             if (err) {
                 callback("Not found! " + err);
             }
-            let data = {
-                title: event.title,
-                place: event.place,
-                description: event.description
-            };
-            callback(err, data)
+            if (!event) {
+                console.log(err);
+            } else {
+                let data = {
+                    id: event.id,
+                    title: event.title,
+                    place: event.place,
+                    description: event.description,
+                    picture: event.picture
+                };
+                callback(err, data)
+            }
         })
     }
 };
