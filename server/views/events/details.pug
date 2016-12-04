@@ -4,13 +4,11 @@ block main-content
         .event-details.container
             div.row.vertical-center-row
                 div.col-md-4.col-md-offset-4
-                    h3
-                        #{data.title}
-                        //- var id = data.id
-                            a(href="/events/details/:" + id) #{data.title}
-                    img(src=`data.picture`)
-                    if(data.creator)
-                    p #{data.creator}
-                    p #{data.place}
-                    p #{data.description}
+                    if(data)
+                        img(src=`${data.picture}` class="img-responsive")
+                        h3 #{data.title}
+                        if(data.creator)
+                            p #{data.creator}
+                        p #{data.description}
+                        p #{data.place}
                 
