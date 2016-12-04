@@ -35,15 +35,14 @@ html
             if (errorMessage)
                 .alert.alert-danger #{errorMessage}
         block main-content
-        footer.navbar.navbar-inverse.navbar-fixed-bottom
-            div.container-fluid
-                ul.bs-docs-footer-links
-                    li
+        footer.footer.navbar.navbar-inverse
+                ul.navbar-collapse.collapse.nav.navbar-nav
+                    li.nav-item.text-center
                         a(href="/") Home
-                    li
+                    li.nav-item.text-center
                         a(href="/about") About
-                    li
+                    li.nav-item.text-center
                         a(href="/support") Support
-                    .rights
-                        | &copy; Undefined
+                    li.nav-item.text-center
+                        a(href="https://github.com/VDGone/NoteIHit") &copy; Undefined
         include scripts
