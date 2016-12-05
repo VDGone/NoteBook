@@ -36,7 +36,7 @@ module.exports = {
                         description: event.description,
                         errorMessage: err
                     };*/
-                    res.redirect("error-page");
+                    res.redirect("../shared/error-page");
                 }
                 else {
                     res.redirect(`/${CONTROLLER_NAME}/details/${event._id}`);
