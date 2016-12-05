@@ -39,14 +39,8 @@ module.exports = {
                 });
             })
     },
-<<<<<<< HEAD
-    getById: function (id, category, callback) {
-        Category.findById(id, (err, category) => {
-            // console.log(category);
-=======
     getByTitle: function (title, category, callback) {
         Category.findOne({title: `${title}`}, (err, category) => {
->>>>>>> refs/remotes/origin/gogo
             if (err) {
                 callback("Not found! " + err);
             }
