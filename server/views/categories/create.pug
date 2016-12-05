@@ -1,13 +1,11 @@
 extends ../shared/layout
 block main-content
     .main-content
-            .shadow
-                .main-content-form
-                    .login-register-content
-                        #left
-                            .create-category-form
-                                form(method="post")
-                                    input(id="title" class="form-control" type="text" name="title" placeholder="Title")
-                                    input(id="picture" class="form-control" type="text" name="picture" placeholder="Picture")
-                                    textarea(id="description" class="form-control" type="text" name="description" placeholder="Description")
-                                    input(type="submit" class="btn btn-lg" value="submit")
+        .create-category-form
+            div.row.vertical-center-row
+                div.col-md-4.col-md-offset-4
+                    form(method="post")
+                        input(id="title" class="form-control" type="text" name="title" placeholder="Title")
+                        input(id="picture" class="form-control" type="text" name="picture" placeholder="Picture")
+                        textarea(id="description" class="form-control" type="text" name="description" placeholder="Description")
+                        input(type="submit" class="btn btn-lg" value="submit")
