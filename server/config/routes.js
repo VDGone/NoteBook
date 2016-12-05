@@ -33,14 +33,6 @@ module.exports = function (app) {
     app.get("/events/create", auth.isAuthenticated, controllers.events.getEvent);
     app.post("/events/create", auth.isAuthenticated, controllers.events.postEvent);
 
-<<<<<<< HEAD
-    app.get("/events", controllers.events.getPublic);
-    app.get("/events/details/:id", controllers.events.getEventById);
-    app.get("/events/create", auth.isAuthenticated, controllers.events.getEvent);
-    app.post("/events/create", auth.isAuthenticated, controllers.events.postEvent);
-
-=======
->>>>>>> refs/remotes/origin/gogo
     app.get("/", function (req, res) {
         res.render("index");
     });
