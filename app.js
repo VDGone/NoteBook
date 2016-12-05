@@ -4,7 +4,7 @@
 
 const express = require("express");
 
-const env = process.env.NODE_ENV || "production";
+const env = process.env.NODE_ENV || "development";
 
 const app = express();
 const config = require("./server/config/config")[env];
