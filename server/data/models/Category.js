@@ -6,7 +6,7 @@ module.exports.init = () => {
     let categorySchema = mongoose.Schema({
         title: { type: String, unique: true },
         picture: { type: String },
-        items: [{type: Object }],
+        items: [{type: mongoose.Schema.Types.Object }],
         description: {type: String}
     });
 

@@ -15,16 +15,32 @@ module.exports = function (app) {
 
     app.get("/profile", auth.isAuthenticated, controllers.users.getProfile);
 
+    app.get("/users", controllers.users.getPublic);
+    app.get('/users/:id',controllers.users.getUserById);
+    
     app.get("/categories", controllers.categories.getPublic);
-    app.get('/categories/details/:id', controllers.categories.getCategoryById);
     app.get("/categories/create", auth.isAuthenticated, controllers.categories.getCreate);
     app.post("/categories/create", auth.isAuthenticated, controllers.categories.postCreate);
+    app.get('/categories/:title', controllers.categories.getCategoryByTitle);
+    app.get('/categories/:title/add', controllers.categories.getAddAdvertisment);
+    app.post('/categories/:title/add', controllers.categories.postAddAdvertisment);
+    app.get('/categories/:title/:id', function(req,res){
+        res.render("categories/details")
+    });
 
     app.get("/events", controllers.events.getPublic);
     app.get("/events/details/:id", controllers.events.getEventById);
     app.get("/events/create", auth.isAuthenticated, controllers.events.getEvent);
     app.post("/events/create", auth.isAuthenticated, controllers.events.postEvent);
 
+<<<<<<< HEAD
+    app.get("/events", controllers.events.getPublic);
+    app.get("/events/details/:id", controllers.events.getEventById);
+    app.get("/events/create", auth.isAuthenticated, controllers.events.getEvent);
+    app.post("/events/create", auth.isAuthenticated, controllers.events.postEvent);
+
+=======
+>>>>>>> refs/remotes/origin/gogo
     app.get("/", function (req, res) {
         res.render("index");
     });

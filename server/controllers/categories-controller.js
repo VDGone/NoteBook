@@ -1,10 +1,10 @@
-var categories = require('../data/categories');
+const categories = require('../data/categories');
 
-var CONTROLLER_NAME = 'categories';
+const CONTROLLER_NAME = 'categories';
 
 module.exports = {
     getCreate: function (req, res) {
-        var category = req.body;
+        let category = req.body;
         res.render(CONTROLLER_NAME + '/create', {
             title: category.title,
             description: category.description,
@@ -13,8 +13,8 @@ module.exports = {
         });
     },
     postCreate: function (req, res) {
-        var category = req.body;
-        var user = req.user;
+        let category = req.body;
+        let user = req.user;
         categories.create(
             category,
             {
@@ -37,8 +37,8 @@ module.exports = {
             })
     },
     getPublic: function (req, res) {
-        var page = req.query.page;
-        var pageSize = req.query.pageSize;
+        let page = req.query.page;
+        let pageSize = req.query.pageSize;
 
         categories.publicCategories(page, pageSize, categories.Date, function (err, data) {
             res.render(CONTROLLER_NAME + '/public', {
@@ -46,14 +46,31 @@ module.exports = {
             });
         });
     },
-    getCategoryById: function (req, res) {
-        var id = req.params.id;
-        var category = req.body;
-        categories.getById(id, category, function (err, data) {
-             console.log(data);
-            res.render(CONTROLLER_NAME + '/details', {
+    getCategoryByTitle: function (req, res) {
+        let title = req.params.title;
+        let category = req.body;
+        categories.getByTitle(title, category, function (err, data) {
+            res.render(CONTROLLER_NAME + '/category', {
                 data: data
-            });
+            },
+            console.log(data));
         });
+    },
+    getAddAdvertisment: function (req, res) {
+        let advertisment = req.body;
+        res.render(CONTROLLER_NAME + '/add-advertisment', {
+            title: advertisment.title,
+            description: advertisment.description,
+            price: advertisment.price,
+            type: advertisment.type,
+            picture: advertisment.picture
+        });
+    },
+    postAddAdvertisment: function(req,res) {
+        let title = req.params.title;
+        let  category = req.body;
+        categories.getByTitleAndUpdate(title,category,function(err,data){
+        })
+        res.redirect('/');
     }
 };
