@@ -4,12 +4,8 @@ block main-content
         .shadow
             .main-content-form
                 .address
-                    a(href="/home")
-                        | home 
-                    span
-                        | >> user profile
                     .category-preview
-                    each advertisment in data.advertisments
+                        each advertisment in data.advertisments
                        .category-preview-content
                            h3
                                a(href="/categories/details/:#{category.id}") #{category.title}
