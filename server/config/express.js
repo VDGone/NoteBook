@@ -7,7 +7,7 @@ const path = require("path");
 
 module.exports = function (app, config) {
     app.set("view engine", "pug");
-    app.set("views", config.rootPath + "/server/views");
+    app.set("views", config.rootPath + "./server/views");
     app.use(cookieParser());
     app.use(session({ secret: "pesho kirkata" }));
     app.use(bodyParser.json());
