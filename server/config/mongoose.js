@@ -5,9 +5,10 @@ const mongoose = require("mongoose");
 //add models
 const UserModel = require("../data/models/User");
 const CategoryModel = require("../data/models/Category");
-const AdvertismentModel = require("../data/models/Advertisment");
+const EventModel = require("../data/models/Event");
 
 module.exports = function(config) {
+    mongoose.Promise = global.Promise; // removes the error in the console for depricated promises.
     mongoose.connect(config.db);
     let db = mongoose.connection;
 
@@ -27,5 +28,5 @@ module.exports = function(config) {
     // init models
     UserModel.init();
     CategoryModel.init();
-    AdvertismentModel.init();
+    EventModel.init();
 };

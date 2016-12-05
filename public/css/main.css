@@ -4,6 +4,14 @@ body,nav,header,div,ul,li{
     border: 0;
 }
 
+body{
+    height: 100%;
+}
+
+div#main-content{
+    width: 100%;
+}
+
 #container, header, div.row{
     width: 100%;
 }
@@ -13,15 +21,32 @@ nav li img {
     height: 70%;
 }
 
+nav ul li{
+    text-align: center;
+}
+
 nav ul li a{
+    font-weight: bold;
+    font-size: 120%;
     color: white;
+}
+
+li.logo {
+    background: no-repeat url(../img/logo.png);
+    background-size: 100% 100%;
+
+}
+
+li.logo a{
+   min-width: 150px; 
+   min-height: 50px;
 }
 
 nav ul li:hover{
     background-color: red;
 }
 
-.navbar-header:hover {
+.logo:hover {
     background-color: inherit;
 }
 
@@ -33,25 +58,42 @@ div.row{
     margin: 0 auto;
 }
 
-div.btn{
+div.btn, #create-events{
 	margin-top: 2%;
 	background-color: red;
 }
 
-div.btn:hover{
+#create-events{
+    font-weight: bold;
+    color: white;
+}
+
+div.btn:hover, #create-events:hover{
 	background-color: black;
 }
 
-.container-table{
+.container-table, footer ul li a{
     font-family: sans-serif;
     font-weight: bold;
 }
 
-.container-table a {
+.container-table a , footer ul li a{
     display: inline-block;
     height: 50%;
     color: white;
     text-decoration: none;
+}
+
+footer {
+    bottom: 0;
+    margin: 1%;
+    border-radius: 2%; 
+    color: red;
+    font-weight: bold;
+}
+
+footer ul {
+    list-style-type: none;
 }
 
 /*nav ul li {

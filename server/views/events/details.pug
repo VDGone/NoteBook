@@ -1,0 +1,16 @@
+extends ../shared/layout
+block main-content
+    .main-content
+        .event-details.container-fluid
+            div.row.vertical-center-row
+                div.text-center.col-md-4.col-md-offset-4
+                    if(data)
+                        img(src=`${data.picture}` class="img-responsive")
+                        h3.text-center.col-md-4.col-md-offset-4 #{data.title}
+                        if(data.creator)
+                            p #{data.creator}
+                        p.text-center.col-md-4.col-md-offset-4 #{data.description}
+                        p.text-center.col-md-4.col-md-offset-4 #{data.place}
+                        div.text-center.col-md-4.col-md-offset-4.btn.btn-default.btn-lg
+                            a(href="/events" role="button" id="update-info") Back to Events
+                

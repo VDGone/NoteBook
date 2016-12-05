@@ -12,7 +12,7 @@ module.exports = {
     },
     postRegister: function (req, res, next) {
         let newUserData = req.body;
-        if (newUserData.profilePicture == "") {
+        if(newUserData.profilePicture == ""){
             newUserData.profilePicture = DEFAULT_USERPICTURE;
         }
         if (newUserData.password != newUserData.confirmPassword) {

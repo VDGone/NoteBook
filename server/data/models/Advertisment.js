@@ -9,7 +9,6 @@ module.exports.init = () => {
         date: { type: Date },
         price: { type: Number },
         type: { type: Object },
-        picture: {type: String },
         comments: [{ type: Object }]
     });
 
